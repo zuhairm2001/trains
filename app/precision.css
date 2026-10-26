@@ -1,0 +1,291 @@
+/*
+ * Precision Interface — theme
+ *
+ * Paper, ink and one signal at a time. This file is the single source of truth for
+ * tokens: `npm run registry` turns it into the `theme` item in registry.json and into
+ * skills/design-system/assets/tokens.css. Edit values here, never in the generated files.
+ *
+ * Moodboard citations (inspiration/moodboard/NN-*.jpg) explain where each value came from.
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Paper & ink — warm paper (02, 10), near-black warm ink (01, 03) */
+  --paper: #f3f1ea;
+  --sheet: #fbfaf6;
+  --wash: #e9e5da;
+  --putty: #e2dccb;
+  --putty-edge: #c9c1ac;
+  --ink: #1b1a17;
+  --ink-2: #5c584f;
+  --ink-3: #686359;
+  --rule: #d5d0c3;
+  --rule-strong: #b8b1a1;
+  --control: #8c8678;
+  --shadow-ink-faint: rgb(27 26 23 / 0.06);
+  --shadow-ink: rgb(27 26 23 / 0.14);
+  --shadow-ink-deep: rgb(27 26 23 / 0.26);
+
+  /* Signal inks — one per visual (01, 06, 08, 13, 22) */
+  --signal-blue: #1e43c4;
+  --signal-red: #b5361e;
+  --signal-green: #2b7446;
+  --signal-ochre: #855900;
+  --signal-plum: #8e3f5e;
+  --signal-yellow: #f1d94a;
+
+  /* Washes — tinted paper behind a signal ink */
+  --wash-blue: #e0e5f5;
+  --wash-red: #f5e0d8;
+  --wash-green: #e2ecdf;
+  --wash-ochre: #f3e8c6;
+  --wash-yellow: #f6e9a6;
+
+  --sidebar-paper: #edeae1;
+  /* Soft corners: sm ≈ 5px (stamps, keys, menu items), md ≈ 6px (controls),
+     lg 8px (cards, panels, menus), xl ≈ 11px (dialogs). Change this one value to tune. */
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* LCD pane — putty hardware framing a dark screen (09) */
+  --paper: #111210;
+  --sheet: #171816;
+  --wash: #22231f;
+  --putty: #2b2c27;
+  --putty-edge: #1a1b18;
+  --ink: #eceae3;
+  --ink-2: #aba79c;
+  --ink-3: #97938a;
+  --rule: #2f302b;
+  --rule-strong: #45463f;
+  --control: #75736a;
+  --shadow-ink-faint: rgb(0 0 0 / 0.3);
+  --shadow-ink: rgb(0 0 0 / 0.45);
+  --shadow-ink-deep: rgb(0 0 0 / 0.6);
+
+  --signal-blue: #86a5ff;
+  --signal-red: #ff7a5c;
+  --signal-green: #7acb8b;
+  --signal-ochre: #e8b54a;
+  --signal-plum: #e08aae;
+  --signal-yellow: #e9cf3f;
+
+  --wash-blue: #161d33;
+  --wash-red: #2e1913;
+  --wash-green: #18271b;
+  --wash-ochre: #2a2412;
+  --wash-yellow: #3d3713;
+
+  --sidebar-paper: #141513;
+}
+
+/* Semantic roles (shadcn contract + Precision additions). Declared for both themes so a
+   nested `.dark` region recomputes them from its own paper and ink. */
+:root,
+.dark {
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--sheet);
+  --card-foreground: var(--ink);
+  --popover: var(--sheet);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--putty);
+  --secondary-foreground: var(--ink);
+  --muted: var(--wash);
+  --muted-foreground: var(--ink-2);
+  --accent: var(--wash);
+  --accent-foreground: var(--ink);
+  --destructive: var(--signal-red);
+  --destructive-foreground: var(--paper);
+  --border: var(--rule);
+  --input: var(--control);
+  --ring: var(--signal-blue);
+
+  --mark: var(--signal-yellow);
+  --mark-foreground: #1b1a17;
+  --mark-wash: var(--wash-yellow);
+  --positive: var(--signal-green);
+  --positive-wash: var(--wash-green);
+  --caution: var(--signal-ochre);
+  --caution-wash: var(--wash-ochre);
+  --destructive-wash: var(--wash-red);
+  --info: var(--signal-blue);
+  --info-wash: var(--wash-blue);
+
+  --chart-1: var(--ink);
+  --chart-2: var(--signal-blue);
+  --chart-3: var(--signal-red);
+  --chart-4: var(--signal-green);
+  --chart-5: var(--signal-ochre);
+
+  --sidebar: var(--sidebar-paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--ink);
+  --sidebar-primary-foreground: var(--paper);
+  --sidebar-accent: var(--wash);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--rule);
+  --sidebar-ring: var(--signal-blue);
+}
+
+@theme inline {
+  --font-heading: var(--font-serif);
+
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-wash: var(--wash);
+  --color-putty: var(--putty);
+  --color-putty-edge: var(--putty-edge);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-control: var(--control);
+  --color-signal-blue: var(--signal-blue);
+  --color-signal-red: var(--signal-red);
+  --color-signal-green: var(--signal-green);
+  --color-signal-ochre: var(--signal-ochre);
+  --color-signal-plum: var(--signal-plum);
+  --color-signal-yellow: var(--signal-yellow);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-mark: var(--mark);
+  --color-mark-foreground: var(--mark-foreground);
+  --color-mark-wash: var(--mark-wash);
+  --color-positive: var(--positive);
+  --color-positive-wash: var(--positive-wash);
+  --color-caution: var(--caution);
+  --color-caution-wash: var(--caution-wash);
+  --color-destructive-wash: var(--destructive-wash);
+  --color-info: var(--info);
+  --color-info-wash: var(--info-wash);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Mono labels: 11px, uppercase, lightly tracked (03, 17, 25) */
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+  --tracking-label: 0.06em;
+
+  /* Lifted sheets: a tight contact shadow plus a soft fall-off, like paper raised off the desk */
+  --shadow-sheet-sm: 0 1px 2px var(--shadow-ink-faint), 0 4px 12px -4px var(--shadow-ink);
+  --shadow-sheet: 0 1px 2px var(--shadow-ink-faint), 0 8px 20px -8px var(--shadow-ink);
+  --shadow-sheet-lg: 0 2px 4px var(--shadow-ink-faint), 0 24px 48px -16px var(--shadow-ink-deep);
+  /* Keycap edge (02, 08) */
+  --shadow-key: inset 0 -2px 0 0 var(--putty-edge);
+  --shadow-key-pressed: inset 0 -1px 0 0 var(--putty-edge);
+
+  --ease-snap: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring;
+  }
+  html {
+    @apply font-sans;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  ::selection {
+    background-color: var(--mark);
+    color: var(--mark-foreground);
+  }
+  h1 {
+    @apply font-heading;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  mark {
+    background-color: var(--mark);
+    color: var(--mark-foreground);
+    padding-inline: 0.15em;
+  }
+}
+
+/* Halftone dot field in the current text colour (01, 04, 05). Named pattern-* rather than
+   bg-* so tailwind-merge (cn) does not treat it as a background colour and drop the real one. */
+@utility pattern-dots {
+  background-image: radial-gradient(currentColor 0.8px, transparent 1.1px);
+  background-size: 6px 6px;
+}
+
+/* Ledger ruling (20) */
+@utility pattern-ruled {
+  background-image: linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 100% 1.5rem;
+}
+
+/* Graph paper for figures and empty frames (24, 27) */
+@utility pattern-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Print hatch for unavailable or not-applicable cells */
+@utility pattern-hatch {
+  background-image: repeating-linear-gradient(
+    135deg,
+    currentColor 0 1px,
+    transparent 1px 6px
+  );
+}
